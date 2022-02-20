@@ -12,7 +12,7 @@ Recommendations(CIKM 2018)](https://arxiv.org/abs/1706.03847)
 RecSys Challenge 2015 Dataset can be retreived from [HERE](https://www.kaggle.com/chadgostopp/recsys-challenge-2015)
 
 ### Run the model
-- You need to run Main_RecSys_Project.py to obtain training data and testing data. In the paper, only the training set was used, the testing set is ignored.
+- You need to run Main_RecSys_Project.ipynb to obtain training data and testing data. In the paper, only the training set was used, the testing set is ignored.
 - The training set itself is divided into training and testing where the testing split is the last day sessions.
 
 The format of data is similar to that obtained from RecSys Challenge 2015:

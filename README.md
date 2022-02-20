@@ -9,7 +9,7 @@ Recommendations(CIKM 2018)](https://arxiv.org/abs/1706.03847)
 ## Usage
 
 ### Dataset
-RecSys Challenge 2015 Dataset can be retreived from [HERE](https://2015.recsyschallenge.com/)
+RecSys Challenge 2015 Dataset can be retreived from [HERE](https://www.kaggle.com/chadgostopp/recsys-challenge-2015)
 
 ### Run the model
 - You need to run Main_RecSys_Project.py to obtain training data and testing data. In the paper, only the training set was used, the testing set is ignored.

@@ -56,9 +56,7 @@ class ItemKNN:
         data.set_index(np.arange(len(data)), inplace=True)
         itemids = data[self.item_key].unique()
         n_items = len(itemids) 
-       
-        #data = pd.merge(data, pd.DataFrame({self.item_key:itemids, 'ItemID':np.arange(len(itemids))}), on=self.item_key, how='inner')
-      
+             
         l1 = data.ItemID.unique()
         l2 = np.arange(len(l1))
         self.itemid_2_itemindex = dict(zip(l1,l2))
@@ -68,8 +66,7 @@ class ItemKNN:
           
         data['ItemID'] = data['ItemID'].apply(mapitem)
         sessionids = data[self.session_key].unique()
-        #data = pd.merge(data, pd.DataFrame({self.session_key:sessionids, 'SessionID':np.arange(len(sessionids))}), on=self.session_key, how='inner')
-       
+        
         l1 = data.SessionID.unique()
         l2 = np.arange(len(l1))
         sessionid_2_sessionindex = dict(zip(l1,l2))
@@ -99,9 +96,7 @@ class ItemKNN:
                 ustart = session_offsets[uidx]
                 uend = session_offsets[uidx+1]
                 user_events = index_by_sessions[ustart:uend]
-        
                 iarray[data.ItemID.values[user_events]] += 1
-              
             iarray[i] = 0
             norm = np.power((supp[i] + self.lmbd), self.alpha) * np.power((supp.values + self.lmbd), (1.0 - self.alpha))
             norm[norm == 0] = 1
@@ -149,15 +144,10 @@ class ItemKNN:
         output: pd.Series of items ID and corresponding prediction score based on popularity model
         '''
 
-        #item_idx = self.itemid_2_itemindex[item_id]
         item_idx = item_id
-        #print(f'item {item_id}, mapped to {item_idx}')
-
         if type(set_of_ids)==type([]):
             set_of_ids = np.array(set_of_ids) 
         pred = np.zeros(len(set_of_ids))
-
-
         sim_list = self.sims[item_idx]
         mask = np.in1d(set_of_ids, sim_list.index)
         pred[mask] = sim_list[set_of_ids[mask]]

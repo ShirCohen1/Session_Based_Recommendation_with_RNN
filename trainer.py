@@ -31,7 +31,6 @@ class Trainer(object):
             loss, recall, mrr = self.evaluation.eval(self.eval_data, self.batch_size)
             print("Epoch: {}, train loss: {:.4f}, loss: {:.4f}, recall: {:.4f}, mrr: {:.4f}, time: {}".format(epoch, train_loss, loss, recall, mrr, time.time() - st))
          
-
     def train_epoch(self, epoch):
         self.model.train()
         losses = []
@@ -47,7 +46,6 @@ class Trainer(object):
         dataloader = lib.DataLoader(self.train_data, self.batch_size)
 
         if self.model_name == 'RNN':
-           #for ii,(data,label) in tqdm(enumerate(train_dataloader),total=len(train_data)):
           for ii, (input, times,  target, mask) in tqdm(enumerate(dataloader), total=len(dataloader.dataset.df) // dataloader.batch_size, miniters = 1000):
               input = input.to(self.device)
               target = target.to(self.device)
@@ -74,7 +72,6 @@ class Trainer(object):
               losses.append(loss.item())
               loss.backward()
               self.optim.step()
-
 
         mean_losses = np.mean(losses)
         return mean_losses

@@ -1,5 +1,5 @@
 # Session-based Recommendation using Deep Learning (RNN)
-- This project is part of RecSys course includes PyTorch Implementation of the GRU4REC model and suggested improvemnt for this model.
+- This project is part of RecSys course includes PyTorch Implementation of the GRU4REC model and improvments for this model.
 - Original paper: [Session-based Recommendations with Recurrent Neural Networks(ICLR 2016)](https://arxiv.org/pdf/1511.06939.pdf)
 - Extension over the Original paper: [Recurrent Neural Networks with Top-k Gains for Session-based
 Recommendations(CIKM 2018)](https://arxiv.org/abs/1706.03847)
@@ -19,6 +19,7 @@ The format of data is similar to that obtained from RecSys Challenge 2015:
 - Filenames
     - Training set should be named as `recSys15TrainOnly.txt`
     - Test set should be named as `recSys15Valid.txt`
+    
     - Sample Training set should be named as `train_sample.txt`
     - Sample Test set should be named as `test_sample.txt`
 - Contents
@@ -26,6 +27,7 @@ The format of data is similar to that obtained from RecSys Challenge 2015:
         - The 1st column of the file should be the integer Session IDs with header name SessionID
         - The 2nd column of the file should be the Timestamps with header name Time 
         - The 3rd column of the file should be the integer Item IDs with header name ItemID
+       
      - `train_sample.txt`, `test_sample.txt` should be the tsv files that stores the pandas dataframes that satisfy the following requirements:
          - The 1st column of the file should be the integer Session IDs with header name SessionID
         - The 2nd column of the file should be the Timestamps with header name Time 

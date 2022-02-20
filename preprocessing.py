@@ -19,6 +19,7 @@ def remove_items(train):
   train = train[np.in1d(train.ItemID, itemLen[itemLen > 4].index)]
   return train
 
+#convert time objects to timestamp
 def convert_time(train):
-  train['Time']= train.Time.apply(lambda x: datetime.datetime.strptime(x, '%Y-%m-%dT%H:%M:%S.%fZ').timestamp()) #Convert time objects to timestamp
+  train['Time']= train.Time.apply(lambda x: datetime.datetime.strptime(x, '%Y-%m-%dT%H:%M:%S.%fZ').timestamp()) 
   return train
